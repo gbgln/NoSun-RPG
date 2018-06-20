@@ -17,15 +17,74 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("NoSun RPG", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Characters<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("List", "Index", "Characters")</li>
+                            <li>@Html.ActionLink("Create", "Create", "Characters")</li>
+                            <li>@Html.ActionLink("Edit", "Edit", "Characters")</li>
+                            <li>@Html.ActionLink("Details", "Details", "Characters")</li>
+                            <li>@Html.ActionLink("Delete", "Delete", "Characters")</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Armors<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("List", "Index", "Armors")</li>
+                            <li>@Html.ActionLink("Create", "Create", "Armors")</li>
+                            <li>@Html.ActionLink("Edit", "Edit", "Armors")</li>
+                            <li>@Html.ActionLink("Details", "Details", "Armors")</li>
+                            <li>@Html.ActionLink("Delete", "Delete", "Armors")</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Weapons<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("List", "Index", "Weapons")</li>
+                            <li>@Html.ActionLink("Create", "Create", "Weapons")</li>
+                            <li>@Html.ActionLink("Edit", "Edit", "Weapons")</li>
+                            <li>@Html.ActionLink("Details", "Details", "Weapons")</li>
+                            <li>@Html.ActionLink("Delete", "Delete", "Weapons")</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Equipments<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("List", "Index", "Equips")</li>
+                            <li>@Html.ActionLink("Create", "Create", "Equips")</li>
+                            <li>@Html.ActionLink("Edit", "Edit", "Equips")</li>
+                            <li>@Html.ActionLink("Details", "Details", "Equips")</li>
+                            <li>@Html.ActionLink("Delete", "Delete", "Equips")</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Monsters<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("List", "Index", "Monsters")</li>
+                            <li>@Html.ActionLink("Create", "Create", "Monsters")</li>
+                            <li>@Html.ActionLink("Edit", "Edit", "Monsters")</li>
+                            <li>@Html.ActionLink("Details", "Details", "Monsters")</li>
+                            <li>@Html.ActionLink("Delete", "Delete", "Monsters")</li>
+                        </ul>
+                    </li>
                 </ul>
-                @Html.Partial("_LoginPartial")
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Sobre", "Sobre", "Home")</li>
+                </ul>
             </div>
         </div>
     </div>
