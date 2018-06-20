@@ -39,5 +39,7 @@ namespace NoSun.Models
         public System.Data.Entity.DbSet<NoSun.Models.Monster> Monsters { get; set; }
 
         public System.Data.Entity.DbSet<NoSun.Models.Character> Characters { get; set; }
+
+        public System.Data.Entity.DbSet<NoSun.Models.Race> Races { get; set; }
     }
 }
