@@ -199,7 +199,6 @@
     <Compile Include="Controllers\ArmorsController.cs" />
     <Compile Include="Controllers\CharactersController.cs" />
     <Compile Include="Controllers\EquipsController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MonstersController.cs" />
     <Compile Include="Controllers\RacesController.cs" />
@@ -279,16 +278,16 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Weapons\Create.cshtml" />
-    <Content Include="Views\Weapons\Delete.cshtml" />
-    <Content Include="Views\Weapons\Details.cshtml" />
-    <Content Include="Views\Weapons\Edit.cshtml" />
-    <Content Include="Views\Weapons\Index.cshtml" />
     <Content Include="Views\Armors\Create.cshtml" />
     <Content Include="Views\Armors\Delete.cshtml" />
     <Content Include="Views\Armors\Details.cshtml" />
     <Content Include="Views\Armors\Edit.cshtml" />
     <Content Include="Views\Armors\Index.cshtml" />
+    <Content Include="Views\Characters\Create.cshtml" />
+    <Content Include="Views\Characters\Delete.cshtml" />
+    <Content Include="Views\Characters\Details.cshtml" />
+    <Content Include="Views\Characters\Edit.cshtml" />
+    <Content Include="Views\Characters\Index.cshtml" />
     <Content Include="Views\Equips\Create.cshtml" />
     <Content Include="Views\Equips\Delete.cshtml" />
     <Content Include="Views\Equips\Details.cshtml" />
@@ -299,16 +298,16 @@
     <Content Include="Views\Monsters\Details.cshtml" />
     <Content Include="Views\Monsters\Edit.cshtml" />
     <Content Include="Views\Monsters\Index.cshtml" />
-    <Content Include="Views\Characters\Create.cshtml" />
-    <Content Include="Views\Characters\Delete.cshtml" />
-    <Content Include="Views\Characters\Details.cshtml" />
-    <Content Include="Views\Characters\Edit.cshtml" />
-    <Content Include="Views\Characters\Index.cshtml" />
     <Content Include="Views\Races\Create.cshtml" />
     <Content Include="Views\Races\Delete.cshtml" />
     <Content Include="Views\Races\Details.cshtml" />
     <Content Include="Views\Races\Edit.cshtml" />
     <Content Include="Views\Races\Index.cshtml" />
+    <Content Include="Views\Weapons\Create.cshtml" />
+    <Content Include="Views\Weapons\Delete.cshtml" />
+    <Content Include="Views\Weapons\Details.cshtml" />
+    <Content Include="Views\Weapons\Edit.cshtml" />
+    <Content Include="Views\Weapons\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

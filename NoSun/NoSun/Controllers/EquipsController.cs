@@ -6,13 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using NoSun.DAL;
 using NoSun.Models;
 
 namespace NoSun.Controllers
 {
     public class EquipsController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private RPGContext db = new RPGContext();
 
         // GET: Equips
         public ActionResult Index()

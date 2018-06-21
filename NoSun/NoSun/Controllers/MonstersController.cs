@@ -6,13 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using NoSun.DAL;
 using NoSun.Models;
 
 namespace NoSun.Controllers
 {
     public class MonstersController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private RPGContext db = new RPGContext();
 
         // GET: Monsters
         public ActionResult Index()
@@ -46,7 +47,7 @@ namespace NoSun.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MonsterId,Name,Atk,Def,Hp,Spd")] Monster monster)
+        public ActionResult Create([Bind(Include = "MonsterId,Name,Atk,Def,Spd,Hp")] Monster monster)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +79,7 @@ namespace NoSun.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MonsterId,Name,Atk,Def,Hp,Spd")] Monster monster)
+        public ActionResult Edit([Bind(Include = "MonsterId,Name,Atk,Def,Spd,Hp")] Monster monster)
         {
             if (ModelState.IsValid)
             {
