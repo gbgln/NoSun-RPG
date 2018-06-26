@@ -202,6 +202,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806212250107_InitialCreate.cs" />
+    <Compile Include="Migrations\201806212250107_InitialCreate.Designer.cs">
+      <DependentUpon>201806212250107_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806262327589_correction.cs" />
+    <Compile Include="Migrations\201806262327589_correction.Designer.cs">
+      <DependentUpon>201806262327589_correction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Armor.cs" />
     <Compile Include="Models\Character.cs" />
@@ -278,11 +287,6 @@
     <Content Include="Views\Armors\Details.cshtml" />
     <Content Include="Views\Armors\Edit.cshtml" />
     <Content Include="Views\Armors\Index.cshtml" />
-    <Content Include="Views\Characters\Create.cshtml" />
-    <Content Include="Views\Characters\Delete.cshtml" />
-    <Content Include="Views\Characters\Details.cshtml" />
-    <Content Include="Views\Characters\Edit.cshtml" />
-    <Content Include="Views\Characters\Index.cshtml" />
     <Content Include="Views\Equips\Create.cshtml" />
     <Content Include="Views\Equips\Delete.cshtml" />
     <Content Include="Views\Equips\Details.cshtml" />
@@ -303,6 +307,11 @@
     <Content Include="Views\Weapons\Details.cshtml" />
     <Content Include="Views\Weapons\Edit.cshtml" />
     <Content Include="Views\Weapons\Index.cshtml" />
+    <Content Include="Views\Characters\Create.cshtml" />
+    <Content Include="Views\Characters\Delete.cshtml" />
+    <Content Include="Views\Characters\Details.cshtml" />
+    <Content Include="Views\Characters\Edit.cshtml" />
+    <Content Include="Views\Characters\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -319,6 +328,14 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201806212250107_InitialCreate.resx">
+      <DependentUpon>201806212250107_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806262327589_correction.resx">
+      <DependentUpon>201806262327589_correction.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
