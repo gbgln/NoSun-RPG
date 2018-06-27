@@ -19,5 +19,13 @@ namespace NoSun.Models
         public int Def { get; set; }
         [Display(Name = "Speed:")]
         public int Spd { get; set; }
+
+        public string WeaponToString
+        {
+            get
+            {
+                return Name + ", ATK: " + Atk.ToString() + ", DEF: " + Def.ToString() + ", SPD: " + Spd.ToString();
+            }
+        }
     }
 }

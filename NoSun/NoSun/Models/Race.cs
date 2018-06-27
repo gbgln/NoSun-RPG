@@ -20,5 +20,12 @@ namespace NoSun.Models
         [Display(Name = "Speed:")]
         public int SpdMod { get; set; }
 
+        public string RaceToString
+        {
+            get
+            {
+                return Name + ", ATK: " + AtkMod.ToString() + ", DEF: " + DefMod.ToString() + ", SPD: " + SpdMod.ToString();
+            }
+        }
     }
 }

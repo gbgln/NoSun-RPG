@@ -39,6 +39,10 @@ namespace NoSun.Controllers
         // GET: Characters/Create
         public ActionResult Create()
         {
+            ViewBag.RaceID = new SelectList(db.Races, "RaceID", "RaceToString");
+            ViewBag.ArmorID = new SelectList(db.Armors, "ArmorID", "ArmorToString");
+            ViewBag.WeaponID = new SelectList(db.Weapons, "WeaponID", "WeaponToString");
+            ViewBag.EquipID = new SelectList(db.Equips, "EquipID", "EquipToString");
             return View();
         }
 
