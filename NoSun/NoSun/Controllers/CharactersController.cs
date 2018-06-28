@@ -51,7 +51,7 @@ namespace NoSun.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PersonagemId,Name,Atk,Def,Spd,Hp")] Character character)
+        public ActionResult Create([Bind(Include = "PersonagemId,Name,Atk,Def,Spd,Hp,RaceID,ArmorID,WeaponID,EquipID")] Character character)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +83,7 @@ namespace NoSun.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PersonagemId,Name,Atk,Def,Spd,Hp")] Character character)
+        public ActionResult Edit([Bind(Include = "PersonagemId,Name,Atk,Def,Spd,Hp,RaceID,ArmorID,WeaponID,EquipID")] Character character)
         {
             if (ModelState.IsValid)
             {
