@@ -26,18 +26,6 @@
         <th>
             @Html.DisplayNameFor(model => model.Hp)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RaceID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ArmorID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.WeaponID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EquipID)
-        </th>
         <th></th>
     </tr>
 
@@ -57,18 +45,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Hp)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RaceID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ArmorID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.WeaponID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EquipID)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.PersonagemId }) |
