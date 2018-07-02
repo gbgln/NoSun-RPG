@@ -18,7 +18,8 @@ namespace NoSun.Controllers
         // GET: Characters
         public ActionResult Index()
         {
-            return View(db.Characters.ToList());
+            var characters = db.Characters.Include(c => c._Armor).Include(c => c._Equip).Include(c => c._Race).Include(c => c._Weapon);
+            return View(characters.ToList());
         }
 
         // GET: Characters/Details/5
@@ -39,10 +40,10 @@ namespace NoSun.Controllers
         // GET: Characters/Create
         public ActionResult Create()
         {
-            ViewBag.RaceID = new SelectList(db.Races, "RaceID", "RaceToString");
-            ViewBag.ArmorID = new SelectList(db.Armors, "ArmorID", "ArmorToString");
-            ViewBag.WeaponID = new SelectList(db.Weapons, "WeaponID", "WeaponToString");
-            ViewBag.EquipID = new SelectList(db.Equips, "EquipID", "EquipToString");
+            ViewBag.ArmorID = new SelectList(db.Armors, "ArmorId", "Name");
+            ViewBag.EquipID = new SelectList(db.Equips, "EquipId", "Name");
+            ViewBag.RaceID = new SelectList(db.Races, "RaceId", "Name");
+            ViewBag.WeaponID = new SelectList(db.Weapons, "WeaponId", "Name");
             return View();
         }
 
@@ -51,7 +52,7 @@ namespace NoSun.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PersonagemId,Name,Atk,Def,Spd,Hp")] Character character)
+        public ActionResult Create([Bind(Include = "PersonagemId,Name,Atk,Def,Spd,Hp,RaceID,ArmorID,WeaponID,EquipID")] Character character)
         {
             if (ModelState.IsValid)
             {
@@ -60,6 +61,10 @@ namespace NoSun.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.ArmorID = new SelectList(db.Armors, "ArmorId", "Name", character.ArmorID);
+            ViewBag.EquipID = new SelectList(db.Equips, "EquipId", "Name", character.EquipID);
+            ViewBag.RaceID = new SelectList(db.Races, "RaceId", "Name", character.RaceID);
+            ViewBag.WeaponID = new SelectList(db.Weapons, "WeaponId", "Name", character.WeaponID);
             return View(character);
         }
 
@@ -75,6 +80,10 @@ namespace NoSun.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.ArmorID = new SelectList(db.Armors, "ArmorId", "Name", character.ArmorID);
+            ViewBag.EquipID = new SelectList(db.Equips, "EquipId", "Name", character.EquipID);
+            ViewBag.RaceID = new SelectList(db.Races, "RaceId", "Name", character.RaceID);
+            ViewBag.WeaponID = new SelectList(db.Weapons, "WeaponId", "Name", character.WeaponID);
             return View(character);
         }
 
@@ -83,7 +92,7 @@ namespace NoSun.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PersonagemId,Name,Atk,Def,Spd,Hp")] Character character)
+        public ActionResult Edit([Bind(Include = "PersonagemId,Name,Atk,Def,Spd,Hp,RaceID,ArmorID,WeaponID,EquipID")] Character character)
         {
             if (ModelState.IsValid)
             {
@@ -91,6 +100,10 @@ namespace NoSun.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.ArmorID = new SelectList(db.Armors, "ArmorId", "Name", character.ArmorID);
+            ViewBag.EquipID = new SelectList(db.Equips, "EquipId", "Name", character.EquipID);
+            ViewBag.RaceID = new SelectList(db.Races, "RaceId", "Name", character.RaceID);
+            ViewBag.WeaponID = new SelectList(db.Weapons, "WeaponId", "Name", character.WeaponID);
             return View(character);
         }
 

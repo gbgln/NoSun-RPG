@@ -47,7 +47,7 @@ namespace NoSun.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RaceId,Name,AtkMod,DefMod,SpdMod")] Race race)
+        public ActionResult Create(Race race)
         {
             if (ModelState.IsValid)
             {

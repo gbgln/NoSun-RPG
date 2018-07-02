@@ -47,7 +47,7 @@ namespace NoSun.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ArmorId,Name,Atk,Def,Spd")] Armor armor)
+        public ActionResult Create(Armor armor)
         {
             if (ModelState.IsValid)
             {
