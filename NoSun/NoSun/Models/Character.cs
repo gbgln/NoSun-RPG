@@ -15,12 +15,27 @@ namespace NoSun.Models
         [Display(Name = "Name:")]
         public string Name { get; set; }
 
-        [Display(Name = "Attack:")]
+        [Display(Name = "Attack:"), NotMapped]
         public int Atk
         {
             get
             {
-                return _Armor.Atk + _Race.AtkMod + _Weapon.Atk + _Equip.Atk;
+                int _atk = 0;
+
+                if (_Armor != null)
+                    _atk += _Armor.Atk;
+
+                if (_Race != null)
+                    _atk += _Race.AtkMod;
+
+                if (_Equip != null)
+                    _atk += _Equip.Atk;
+
+                if (_Weapon != null)
+                    _atk += _Weapon.Atk;
+                //if (_Armor != null && _Race != null && _Weapon != null && _Equip != null)
+
+                    return _atk;
             }
 
         }
@@ -30,7 +45,23 @@ namespace NoSun.Models
         {
             get
             {
-                return _Armor.Def + _Race.DefMod + _Weapon.Def + _Equip.Def;
+                int _def = 0;
+
+                if (_Armor != null)
+                    _def += _Armor.Def;
+
+                if (_Race != null)
+                    _def += _Race.DefMod;
+
+                if (_Equip != null)
+                    _def += _Equip.Def;
+
+                if (_Weapon != null)
+                    _def += _Weapon.Def;
+
+                return _def;
+
+                //return _Armor.Def + _Race.DefMod + _Weapon.Def + _Equip.Def;
             }
 
         }
@@ -40,7 +71,23 @@ namespace NoSun.Models
         {
             get
             {
-                return _Armor.Spd + _Race.SpdMod + _Weapon.Spd + _Equip.Spd;
+                int _spd = 0;
+
+                if (_Armor != null)
+                    _spd += _Armor.Spd;
+
+                if (_Race != null)
+                    _spd += _Race.SpdMod;
+
+                if (_Equip != null)
+                    _spd += _Equip.Spd;
+
+                if (_Weapon != null)
+                    _spd += _Weapon.Spd;
+
+                return _spd;
+
+                //    return _Armor.Spd + _Race.SpdMod + _Weapon.Spd + _Equip.Spd;
             }
 
         }

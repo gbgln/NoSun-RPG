@@ -40,10 +40,10 @@ namespace NoSun.Controllers
         // GET: Characters/Create
         public ActionResult Create()
         {
-            ViewBag.ArmorID = new SelectList(db.Armors, "ArmorId", "Name");
-            ViewBag.EquipID = new SelectList(db.Equips, "EquipId", "Name");
-            ViewBag.RaceID = new SelectList(db.Races, "RaceId", "Name");
-            ViewBag.WeaponID = new SelectList(db.Weapons, "WeaponId", "Name");
+            ViewBag.ArmorID = new SelectList(db.Armors, "ArmorId", "ArmorToString");
+            ViewBag.EquipID = new SelectList(db.Equips, "EquipId", "EquipToString");
+            ViewBag.RaceID = new SelectList(db.Races, "RaceId", "RaceToString");
+            ViewBag.WeaponID = new SelectList(db.Weapons, "WeaponId", "WeaponToString");
             return View();
         }
 
@@ -52,7 +52,7 @@ namespace NoSun.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PersonagemId,Name,Atk,Def,Spd,Hp,RaceID,ArmorID,WeaponID,EquipID")] Character character)
+        public ActionResult Create(Character character)
         {
             if (ModelState.IsValid)
             {
@@ -61,10 +61,10 @@ namespace NoSun.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ArmorID = new SelectList(db.Armors, "ArmorId", "Name", character.ArmorID);
-            ViewBag.EquipID = new SelectList(db.Equips, "EquipId", "Name", character.EquipID);
-            ViewBag.RaceID = new SelectList(db.Races, "RaceId", "Name", character.RaceID);
-            ViewBag.WeaponID = new SelectList(db.Weapons, "WeaponId", "Name", character.WeaponID);
+            ViewBag.ArmorID = new SelectList(db.Armors, "ArmorId", "ArmorToString", character.ArmorID);
+            ViewBag.EquipID = new SelectList(db.Equips, "EquipId", "EquipToString", character.EquipID);
+            ViewBag.RaceID = new SelectList(db.Races, "RaceId", "RaceToString", character.RaceID);
+            ViewBag.WeaponID = new SelectList(db.Weapons, "WeaponId", "WeaponToString", character.WeaponID);
             return View(character);
         }
 

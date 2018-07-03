@@ -12,6 +12,7 @@ namespace NoSun.Models
     {
         [Key]
         public int EquipId { get; set; }
+        [Display(Name = "Equipment:")]
         public string Name { get; set; }
         [Display (Name = "Attack:")]
         public int Atk { get; set; }
