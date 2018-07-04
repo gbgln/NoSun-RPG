@@ -20,6 +20,8 @@ namespace NoSun.DAL
         public DbSet<Weapon> Weapons { get; set; }
         public DbSet<Race> Races { get; set; }
         public DbSet<Monster> Monsters { get; set; }
+        public DbSet<Level> Levels { get; set; }
+        public DbSet<Reward> Rewards { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

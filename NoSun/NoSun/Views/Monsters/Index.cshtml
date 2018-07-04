@@ -1,16 +1,22 @@
 ﻿@model IEnumerable<NoSun.Models.Monster>
 
 @{
-    ViewBag.Title = "Horde of Monsters";
+    ViewBag.Title = "Index";
 }
 
-<h2>Hall of Monsters</h2>
+<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model._Level.Lvl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model._Reward.Description)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
@@ -31,6 +37,12 @@
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item._Level.Lvl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item._Reward.Description)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
         </td>

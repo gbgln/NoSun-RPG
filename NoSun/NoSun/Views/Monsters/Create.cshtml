@@ -1,10 +1,10 @@
 ﻿@model NoSun.Models.Monster
 
 @{
-    ViewBag.Title = "Create Monster";
+    ViewBag.Title = "Create";
 }
 
-<h2>Create Monster</h2>
+<h2>Create</h2>
 
 
 @using (Html.BeginForm()) 
@@ -52,6 +52,22 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Hp, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Hp, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LevelID, "LevelID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("LevelID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.LevelID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RewardID, "RewardID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("RewardID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.RewardID, "", new { @class = "text-danger" })
             </div>
         </div>
 

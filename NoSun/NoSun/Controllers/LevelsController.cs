@@ -11,117 +11,107 @@ using NoSun.Models;
 
 namespace NoSun.Controllers
 {
-    public class MonstersController : Controller
+    public class LevelsController : Controller
     {
         private RPGContext db = new RPGContext();
 
-        // GET: Monsters
+        // GET: Levels
         public ActionResult Index()
         {
-            var monsters = db.Monsters.Include(m => m._Level).Include(m => m._Reward);
-            return View(monsters.ToList());
+            return View(db.Levels.ToList());
         }
 
-        // GET: Monsters/Details/5
-        public ActionResult Details(Guid? id)
+        // GET: Levels/Details/5
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Monster monster = db.Monsters.Find(id);
-            if (monster == null)
+            Level level = db.Levels.Find(id);
+            if (level == null)
             {
                 return HttpNotFound();
             }
-            return View(monster);
+            return View(level);
         }
 
-        // GET: Monsters/Create
+        // GET: Levels/Create
         public ActionResult Create()
         {
-            ViewBag.LevelID = new SelectList(db.Levels, "LevelId", "Lvl");
-            ViewBag.RewardID = new SelectList(db.Rewards, "RewardId", "Description");
             return View();
         }
 
-        // POST: Monsters/Create
+        // POST: Levels/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MonsterId,Name,Atk,Def,Spd,Hp,LevelID,RewardID")] Monster monster)
+        public ActionResult Create([Bind(Include = "LevelId,Lvl")] Level level)
         {
             if (ModelState.IsValid)
             {
-                monster.MonsterId = Guid.NewGuid();
-                db.Monsters.Add(monster);
+                db.Levels.Add(level);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.LevelID = new SelectList(db.Levels, "LevelId", "Lvl", monster.LevelID);
-            ViewBag.RewardID = new SelectList(db.Rewards, "RewardId", "Description", monster.RewardID);
-            return View(monster);
+            return View(level);
         }
 
-        // GET: Monsters/Edit/5
-        public ActionResult Edit(Guid? id)
+        // GET: Levels/Edit/5
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Monster monster = db.Monsters.Find(id);
-            if (monster == null)
+            Level level = db.Levels.Find(id);
+            if (level == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.LevelID = new SelectList(db.Levels, "LevelId", "Lvl", monster.LevelID);
-            ViewBag.RewardID = new SelectList(db.Rewards, "RewardId", "Description", monster.RewardID);
-            return View(monster);
+            return View(level);
         }
 
-        // POST: Monsters/Edit/5
+        // POST: Levels/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MonsterId,Name,Atk,Def,Spd,Hp,LevelID,RewardID")] Monster monster)
+        public ActionResult Edit([Bind(Include = "LevelId,Lvl")] Level level)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(monster).State = EntityState.Modified;
+                db.Entry(level).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.LevelID = new SelectList(db.Levels, "LevelId", "Lvl", monster.LevelID);
-            ViewBag.RewardID = new SelectList(db.Rewards, "RewardId", "Description", monster.RewardID);
-            return View(monster);
+            return View(level);
         }
 
-        // GET: Monsters/Delete/5
-        public ActionResult Delete(Guid? id)
+        // GET: Levels/Delete/5
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Monster monster = db.Monsters.Find(id);
-            if (monster == null)
+            Level level = db.Levels.Find(id);
+            if (level == null)
             {
                 return HttpNotFound();
             }
-            return View(monster);
+            return View(level);
         }
 
-        // POST: Monsters/Delete/5
+        // POST: Levels/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(Guid id)
+        public ActionResult DeleteConfirmed(int id)
         {
-            Monster monster = db.Monsters.Find(id);
-            db.Monsters.Remove(monster);
+            Level level = db.Levels.Find(id);
+            db.Levels.Remove(level);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

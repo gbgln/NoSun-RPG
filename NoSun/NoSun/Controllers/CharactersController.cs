@@ -80,10 +80,10 @@ namespace NoSun.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ArmorID = new SelectList(db.Armors, "ArmorId", "Name", character.ArmorID);
-            ViewBag.EquipID = new SelectList(db.Equips, "EquipId", "Name", character.EquipID);
-            ViewBag.RaceID = new SelectList(db.Races, "RaceId", "Name", character.RaceID);
-            ViewBag.WeaponID = new SelectList(db.Weapons, "WeaponId", "Name", character.WeaponID);
+            ViewBag.ArmorID = new SelectList(db.Armors, "ArmorId", "ArmorToString", character.ArmorID);
+            ViewBag.EquipID = new SelectList(db.Equips, "EquipId", "EquipToString", character.EquipID);
+            ViewBag.RaceID = new SelectList(db.Races, "RaceId", "RaceToString", character.RaceID);
+            ViewBag.WeaponID = new SelectList(db.Weapons, "WeaponId", "WeaponToString", character.WeaponID);
             return View(character);
         }
 

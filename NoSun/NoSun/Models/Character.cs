@@ -24,18 +24,22 @@ namespace NoSun.Models
 
                 if (_Armor != null)
                     _atk += _Armor.Atk;
+                else _atk += 0;
 
                 if (_Race != null)
                     _atk += _Race.AtkMod;
+                else _atk += 0;
 
                 if (_Equip != null)
                     _atk += _Equip.Atk;
+                else _atk += 0;
 
                 if (_Weapon != null)
                     _atk += _Weapon.Atk;
+                else _atk += 0;
                 //if (_Armor != null && _Race != null && _Weapon != null && _Equip != null)
 
-                    return _atk;
+                return _atk;
             }
 
         }
@@ -49,15 +53,19 @@ namespace NoSun.Models
 
                 if (_Armor != null)
                     _def += _Armor.Def;
+                else _def += 0;
 
                 if (_Race != null)
                     _def += _Race.DefMod;
+                else _def += 0;
 
                 if (_Equip != null)
                     _def += _Equip.Def;
+                else _def += 0;
 
                 if (_Weapon != null)
                     _def += _Weapon.Def;
+                else _def += 0;
 
                 return _def;
 
@@ -75,15 +83,19 @@ namespace NoSun.Models
 
                 if (_Armor != null)
                     _spd += _Armor.Spd;
+                else _spd += 0;
 
                 if (_Race != null)
                     _spd += _Race.SpdMod;
+                else _spd += 0;
 
                 if (_Equip != null)
                     _spd += _Equip.Spd;
+                else _spd += 0;
 
                 if (_Weapon != null)
                     _spd += _Weapon.Spd;
+                else _spd += 0;
 
                 return _spd;
 
