@@ -194,10 +194,11 @@
     <Compile Include="Controllers\CharactersController.cs" />
     <Compile Include="Controllers\EquipsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LevelsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MonstersController.cs" />
+    <Compile Include="Controllers\NPCsController.cs" />
     <Compile Include="Controllers\RacesController.cs" />
+    <Compile Include="Controllers\RegionsController.cs" />
     <Compile Include="Controllers\RewardsController.cs" />
     <Compile Include="Controllers\WeaponsController.cs" />
     <Compile Include="DAL\RPGContext.cs" />
@@ -212,22 +213,25 @@
     <Compile Include="Migrations\201806262327589_correction.Designer.cs">
       <DependentUpon>201806262327589_correction.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807051403206_newcreate.cs" />
+    <Compile Include="Migrations\201807051403206_newcreate.Designer.cs">
+      <DependentUpon>201807051403206_newcreate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Armor.cs" />
     <Compile Include="Models\Character.cs" />
     <Compile Include="Models\Equip.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Level.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Monster.cs" />
+    <Compile Include="Models\NPC.cs" />
     <Compile Include="Models\Race.cs" />
+    <Compile Include="Models\Region.cs" />
     <Compile Include="Models\Reward.cs" />
     <Compile Include="Models\Weapon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\MonsterDisplayViewModel.cs" />
-    <Compile Include="ViewModels\MonsterEditViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -313,11 +317,16 @@
     <Content Include="Views\Characters\Details.cshtml" />
     <Content Include="Views\Characters\Edit.cshtml" />
     <Content Include="Views\Characters\Index.cshtml" />
-    <Content Include="Views\Levels\Create.cshtml" />
-    <Content Include="Views\Levels\Delete.cshtml" />
-    <Content Include="Views\Levels\Details.cshtml" />
-    <Content Include="Views\Levels\Edit.cshtml" />
-    <Content Include="Views\Levels\Index.cshtml" />
+    <Content Include="Views\Regions\Create.cshtml" />
+    <Content Include="Views\Regions\Delete.cshtml" />
+    <Content Include="Views\Regions\Details.cshtml" />
+    <Content Include="Views\Regions\Edit.cshtml" />
+    <Content Include="Views\Regions\Index.cshtml" />
+    <Content Include="Views\NPCs\Create.cshtml" />
+    <Content Include="Views\NPCs\Delete.cshtml" />
+    <Content Include="Views\NPCs\Details.cshtml" />
+    <Content Include="Views\NPCs\Edit.cshtml" />
+    <Content Include="Views\NPCs\Index.cshtml" />
     <Content Include="Views\Rewards\Create.cshtml" />
     <Content Include="Views\Rewards\Delete.cshtml" />
     <Content Include="Views\Rewards\Details.cshtml" />
@@ -331,6 +340,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Demo\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -351,6 +361,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806262327589_correction.resx">
       <DependentUpon>201806262327589_correction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807051403206_newcreate.resx">
+      <DependentUpon>201807051403206_newcreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

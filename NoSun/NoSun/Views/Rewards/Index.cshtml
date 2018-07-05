@@ -12,10 +12,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model._Level.Lvl)
+            @Html.DisplayNameFor(model => model.RewardDesc)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.DisplayNameFor(model => model._NPC.NPCName)
         </th>
         <th></th>
     </tr>
@@ -23,15 +23,15 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item._Level.Lvl)
+            @Html.DisplayFor(modelItem => item.RewardDesc)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Description)
+            @Html.DisplayFor(modelItem => item._NPC.NPCName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RewardId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RewardId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RewardId })
+            @Html.ActionLink("Edit", "Edit", new { id=item.RewardID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RewardID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RewardID })
         </td>
     </tr>
 }

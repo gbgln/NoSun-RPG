@@ -11,24 +11,24 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model._Level.Lvl)
+            @Html.DisplayNameFor(model => model.RewardDesc)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model._Level.Lvl)
+            @Html.DisplayFor(model => model.RewardDesc)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.DisplayNameFor(model => model.NPCID)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Description)
+            @Html.DisplayFor(model => model.NPCID)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.RewardId }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RewardID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

@@ -18,7 +18,7 @@ namespace NoSun.Controllers
         // GET: Rewards
         public ActionResult Index()
         {
-            var rewards = db.Rewards.Include(r => r._Level);
+            var rewards = db.Rewards.Include(i => i._Region).Include(i => i._NPC);
             return View(rewards.ToList());
         }
 
@@ -40,16 +40,44 @@ namespace NoSun.Controllers
         // GET: Rewards/Create
         public ActionResult Create()
         {
-            ViewBag.LevelID = new SelectList(db.Levels, "LevelId", "Lvl");
+            List<Region> lstRegion = db.Regions.ToList();
+            lstRegion.Insert(0, new Region { RegionID = 0, RegionName = "--Select Region--" });
+
+            List<NPC> lstNPC = new List<NPC>();
+            ViewBag.RegionId = new SelectList(lstRegion, "RegionID", "RegionName");
+            ViewBag.NPCId = new SelectList(lstNPC, "NPCID", "NPCName");
             return View();
         }
 
+        public JsonResult GetNPCsByRegionId(int id)
+        {
+            List<NPC> NPCs = new List<NPC>();
+            if (id > 0)
+            {
+                NPCs = db.NPCs.Where(p => p.RegionID == id).ToList();
+
+            }
+            else
+            {
+                NPCs.Insert(0, new NPC { NPCID = 0, NPCName = "--Select a region first--" });
+            }
+            var result = (from r in NPCs
+                          select new
+                          {
+                              id = r.NPCID,
+                              name = r.NPCName
+                          }).ToList();
+
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+
         // POST: Rewards/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RewardId,LevelID,Description")] Reward reward)
+        public ActionResult Create(Reward reward)
         {
             if (ModelState.IsValid)
             {
@@ -58,7 +86,8 @@ namespace NoSun.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.LevelID = new SelectList(db.Levels, "LevelId", "Lvl", reward.LevelID);
+            ViewBag.RegionId = new SelectList(db.Regions, "RegionID", "RegionName", reward.RegionID);
+            ViewBag.NPCId = new SelectList(db.NPCs, "NPCID", "NPCName", reward.NPCID);
             return View(reward);
         }
 
@@ -74,16 +103,17 @@ namespace NoSun.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.LevelID = new SelectList(db.Levels, "LevelId", "Lvl", reward.LevelID);
+            ViewBag.RegionId = new SelectList(db.Regions, "RegionID", "RegionName", reward.RegionID);
+            ViewBag.NPCId = new SelectList(db.NPCs, "NPCID", "NPCName", reward.NPCID);
             return View(reward);
         }
 
         // POST: Rewards/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RewardId,LevelID,Description")] Reward reward)
+        public ActionResult Edit(Reward reward)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +121,8 @@ namespace NoSun.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.LevelID = new SelectList(db.Levels, "LevelId", "Lvl", reward.LevelID);
+            ViewBag.RegionId = new SelectList(db.Regions, "RegionID", "RegionName", reward.RegionID);
+            ViewBag.NPCId = new SelectList(db.NPCs, "NPCID", "NPCName", reward.NPCID);
             return View(reward);
         }
 

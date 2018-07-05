@@ -1,4 +1,4 @@
-﻿@model NoSun.Models.Reward
+﻿@model NoSun.Models.Region
 
 @{
     ViewBag.Title = "Delete";
@@ -8,23 +8,15 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Reward</h4>
+    <h4>Region</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.RewardDesc)
+            @Html.DisplayNameFor(model => model.RegionName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.RewardDesc)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NPCID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NPCID)
+            @Html.DisplayFor(model => model.RegionName)
         </dd>
 
     </dl>

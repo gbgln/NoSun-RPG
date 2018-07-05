@@ -9,109 +9,128 @@ using System.Web.Mvc;
 using NoSun.DAL;
 using NoSun.Models;
 
-namespace NoSun.Controllers
+namespace Web.Mahedee.net.Controllers
 {
-    public class LevelsController : Controller
+    public class NPCsController : Controller
     {
         private RPGContext db = new RPGContext();
 
-        // GET: Levels
+        // GET: NPCs
         public ActionResult Index()
         {
-            return View(db.Levels.ToList());
+            var NPCs = db.NPCs.Include(p => p._Region);
+            return View(NPCs.ToList());
         }
 
-        // GET: Levels/Details/5
+        // GET: NPCs/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Level level = db.Levels.Find(id);
-            if (level == null)
+            NPC NPC = db.NPCs.Find(id);
+            if (NPC == null)
             {
                 return HttpNotFound();
             }
-            return View(level);
+            return View(NPC);
         }
 
-        // GET: Levels/Create
+        // GET: NPCs/Create
         public ActionResult Create()
         {
+            ViewBag.RegionId = new SelectList(db.Regions, "RegionID", "RegionName");
             return View();
         }
 
-        // POST: Levels/Create
+        public ActionResult GetNPCsByRegionId(int id)
+        {
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+            List<NPC> NPCs = db.NPCs.Where(p => p.RegionID == id).ToList();
+            if (NPCs == null)
+            {
+                return HttpNotFound();
+            }
+            return Json(NPCs, JsonRequestBehavior.AllowGet);
+        }
+
+        // POST: NPCs/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "LevelId,Lvl")] Level level)
+        public ActionResult Create(NPC NPC)
         {
             if (ModelState.IsValid)
             {
-                db.Levels.Add(level);
+                db.NPCs.Add(NPC);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(level);
+            ViewBag.RegionId = new SelectList(db.Regions, "RegionID", "RegionName", NPC.RegionID);
+            return View(NPC);
         }
 
-        // GET: Levels/Edit/5
+        // GET: NPCs/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Level level = db.Levels.Find(id);
-            if (level == null)
+            NPC NPC = db.NPCs.Find(id);
+            if (NPC == null)
             {
                 return HttpNotFound();
             }
-            return View(level);
+            ViewBag.RegionId = new SelectList(db.Regions, "RegionID", "RegionName", NPC.RegionID);
+            return View(NPC);
         }
 
-        // POST: Levels/Edit/5
+        // POST: NPCs/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "LevelId,Lvl")] Level level)
+        public ActionResult Edit(NPC NPC)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(level).State = EntityState.Modified;
+                db.Entry(NPC).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(level);
+            ViewBag.RegionId = new SelectList(db.Regions, "RegionID", "RegionName", NPC.RegionID);
+            return View(NPC);
         }
 
-        // GET: Levels/Delete/5
+        // GET: NPCs/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Level level = db.Levels.Find(id);
-            if (level == null)
+            NPC NPC = db.NPCs.Find(id);
+            if (NPC == null)
             {
                 return HttpNotFound();
             }
-            return View(level);
+            return View(NPC);
         }
 
-        // POST: Levels/Delete/5
+        // POST: NPCs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Level level = db.Levels.Find(id);
-            db.Levels.Remove(level);
+            NPC NPC = db.NPCs.Find(id);
+            db.NPCs.Remove(NPC);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

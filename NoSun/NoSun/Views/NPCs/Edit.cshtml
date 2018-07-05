@@ -1,4 +1,4 @@
-﻿@model NoSun.Models.Reward
+﻿@model NoSun.Models.NPC
 
 @{
     ViewBag.Title = "Edit";
@@ -12,24 +12,24 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Reward</h4>
+        <h4>NPC</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.RewardID)
+        @Html.HiddenFor(model => model.NPCID)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.RewardDesc, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.RegionID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.RewardDesc, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.RewardDesc, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.RegionID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RegionID, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.NPCID, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.NPCName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.NPCID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NPCID, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.NPCName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NPCName, "", new { @class = "text-danger" })
             </div>
         </div>
 

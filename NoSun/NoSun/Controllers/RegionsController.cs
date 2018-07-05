@@ -11,107 +11,107 @@ using NoSun.Models;
 
 namespace NoSun.Controllers
 {
-    public class MonstersController : Controller
+    public class RegionsController : Controller
     {
         private RPGContext db = new RPGContext();
 
-        // GET: Monsters
+        // GET: Regions
         public ActionResult Index()
         {
-            return View(db.Monsters.ToList());
+            return View(db.Regions.ToList());
         }
 
-        // GET: Monsters/Details/5
+        // GET: Regions/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Monster monster = db.Monsters.Find(id);
-            if (monster == null)
+            Region region = db.Regions.Find(id);
+            if (region == null)
             {
                 return HttpNotFound();
             }
-            return View(monster);
+            return View(region);
         }
 
-        // GET: Monsters/Create
+        // GET: Regions/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Monsters/Create
+        // POST: Regions/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MonsterId,Name,Atk,Def,Spd,Hp")] Monster monster)
+        public ActionResult Create(Region region)
         {
             if (ModelState.IsValid)
             {
-                db.Monsters.Add(monster);
+                db.Regions.Add(region);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(monster);
+            return View(region);
         }
 
-        // GET: Monsters/Edit/5
+        // GET: Regions/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Monster monster = db.Monsters.Find(id);
-            if (monster == null)
+            Region region = db.Regions.Find(id);
+            if (region == null)
             {
                 return HttpNotFound();
             }
-            return View(monster);
+            return View(region);
         }
 
-        // POST: Monsters/Edit/5
+        // POST: Regions/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MonsterId,Name,Atk,Def,Spd,Hp")] Monster monster)
+        public ActionResult Edit(Region region)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(monster).State = EntityState.Modified;
+                db.Entry(region).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(monster);
+            return View(region);
         }
 
-        // GET: Monsters/Delete/5
+        // GET: Regions/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Monster monster = db.Monsters.Find(id);
-            if (monster == null)
+            Region region = db.Regions.Find(id);
+            if (region == null)
             {
                 return HttpNotFound();
             }
-            return View(monster);
+            return View(region);
         }
 
-        // POST: Monsters/Delete/5
+        // POST: Regions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Monster monster = db.Monsters.Find(id);
-            db.Monsters.Remove(monster);
+            Region region = db.Regions.Find(id);
+            db.Regions.Remove(region);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

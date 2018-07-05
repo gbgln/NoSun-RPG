@@ -7,23 +7,20 @@ using System.Web;
 
 namespace NoSun.Models
 {
-    public class Reward
+    public class NPC
     {
         //[Key]
         [Display(Name = "ID: ")]
-        public int RewardID { get; set; }
-        [Display(Name = "Reward: ")]
-        public string RewardDesc { get; set; }
+        public int NPCID { get; set; }
+        [Display(Name = "NPC Name: ")]
+        public string NPCName { get; set; }
 
         [Display(Name = "Region: ")]
         public int RegionID { get; set; }
+
         [ForeignKey("RegionID")]
         public virtual Region _Region { get; set; }
 
-        [Display(Name = "Giver: ")]
-        public int NPCID { get; set; }
-        [ForeignKey("NPCID")]
-        public NPC _NPC { get; set; }
         
     }
 }
